@@ -41,7 +41,7 @@ static const ManyMouseDriver **mice_drivers[] =
 
 static const ManyMouseDriver *driver = NULL;
 
-int ManyMouse_Init(void)
+__declspec(dllexport) int ManyMouse_Init(void)
 {
     const int upper = (sizeof (mice_drivers) / sizeof (mice_drivers[0]));
     int i;
@@ -71,8 +71,7 @@ int ManyMouse_Init(void)
     return retval;
 } /* ManyMouse_Init */
 
-
-void ManyMouse_Quit(void)
+__declspec(dllexport) void ManyMouse_Quit(void)
 {
     if (driver != NULL)
     {
@@ -81,17 +80,17 @@ void ManyMouse_Quit(void)
     } /* if */
 } /* ManyMouse_Quit */
 
-const char *ManyMouse_DriverName(void)
+__declspec(dllexport) const char *ManyMouse_DriverName(void)
 {
     return (driver) ? driver->driver_name : NULL;
 } /* ManyMouse_DriverName */
 
-const char *ManyMouse_DeviceName(unsigned int index)
+__declspec(dllexport) const char *ManyMouse_DeviceName(unsigned int index)
 {
     return (driver) ? driver->name(index) : NULL;
 } /* ManyMouse_DeviceName */
 
-int ManyMouse_PollEvent(ManyMouseEvent *event)
+__declspec(dllexport) int ManyMouse_PollEvent(ManyMouseEvent *event)
 {
     return (driver) ? driver->poll(event) : 0;
 } /* ManyMouse_PollEvent */

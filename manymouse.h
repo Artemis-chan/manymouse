@@ -46,12 +46,11 @@ typedef struct
     int (*poll)(ManyMouseEvent *event);
 } ManyMouseDriver;
 
-
-int ManyMouse_Init(void);
-const char *ManyMouse_DriverName(void);
-void ManyMouse_Quit(void);
-const char *ManyMouse_DeviceName(unsigned int index);
-int ManyMouse_PollEvent(ManyMouseEvent *event);
+__declspec(dllexport) int ManyMouse_Init(void);
+__declspec(dllexport) const char *ManyMouse_DriverName(void);
+__declspec(dllexport) void ManyMouse_Quit(void);
+__declspec(dllexport) const char *ManyMouse_DeviceName(unsigned int index);
+__declspec(dllexport) int ManyMouse_PollEvent(ManyMouseEvent *event);
 
 #ifdef __cplusplus
 }
