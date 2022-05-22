@@ -6,6 +6,10 @@
  *  This file written by Ryan C. Gordon.
  */
 
+#if !defined(__MINGW32__) && !defined(__MINGW32__) && !defined(_WIN32) && !defined(_WIN64)
+#define __declspec(dllexport)
+#endif
+
 #ifndef _INCLUDE_MANYMOUSE_H_
 #define _INCLUDE_MANYMOUSE_H_
 
